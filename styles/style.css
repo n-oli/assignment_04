@@ -1,0 +1,21 @@
+/*
+  Give the page a minimum height equal to the browser window.
+*/
+body {
+  min-height: 100vh;
+}
+
+/*
+  Reserve enough vertical space for the main assignment content.
+*/
+main {
+  min-height: 70vh;
+}
+
+/*
+  Limit the Accordion width on large screens so its text remains easy to read.
+  On smaller screens, it can still shrink to fit the available space.
+*/
+.accordion {
+  max-width: 700px;
+}
