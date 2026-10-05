@@ -1,27 +1,35 @@
 # CSC 235 Bootstrap Components Assignment
 
-This project is based on the [CSC235 sample](https://github.com/connorj4/CSC235-sample) and uses Bootstrap 5.3. I added two Bootstrap components to the sample lecture page.
+This project demonstrates two Bootstrap components using Bootstrap 5.3:
 
-## 1. Accordion
+- Accordion
+- Modal
 
-I used an Accordion to organize the lecture topics. A student can click a lecture title to show or hide its description. This keeps the page simple and prevents all the lecture information from taking up space at the same time.
+Bootstrap is loaded from a CDN for styling and interactive behavior.
 
-## 2. Modal
+## Accordion
 
-I used a Modal to display additional course information. It allows the student to read the information without leaving the lecture page. The student can close the Modal and continue using the same page.
+The Accordion organizes information into collapsible sections. Users can click each section to show or hide its content.
 
-## JavaScript
+In this project, the Accordion explains:
 
-The Accordion and Modal require the Bootstrap JavaScript bundle to open and close. I did not write custom JavaScript to control those components because Bootstrap handles their behavior through `data-bs-` attributes in the HTML.
+- What an Accordion is
+- What a Modal is
 
-The custom `scripts/main.js` file is only used to update the current time in the footer.
+The `data-bs-target` and `data-bs-parent` attributes connect the buttons to their collapsible content.
+
+## Modal
+
+The Modal displays course information in a popup window above the current page.
+
+Users can open the Modal by clicking the **View Modal** button. They can close it by clicking either the close button in the upper-right corner or the **Close** button in the modal footer.
 
 ## Project Files
 
-- `index.html` contains the page structure, detailed comments, and the two Bootstrap components.
-- `styles/style.css` contains the small amount of custom styling used by the page.
-- `scripts/main.js` updates the current time in the footer.
+- `index.html` contains the page structure, navigation, Accordion, Modal, and footer.
+- `styles/style.css` contains the custom CSS styling.
+- `reademe.md` contains project documentation.
 
 ## How to View the Project
 
-Open `index.html` in a web browser. An internet connection is required because Bootstrap is loaded from a CDN.
+Open `index.html` in a web browser.
