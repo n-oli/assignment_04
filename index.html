@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSC 235 Bootstrap Sample</title>
+    <!-- This will link to the Bootstrap CSS file hosted on a CDN. The integrity and crossorigin attributes help ensure the file is loaded securely. -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- This stylesheet contains only a few small styles written for this assignment. and we are using it belwo bootstrap to override some of the bootstrap styles.-->
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+
+  <body>
+    <!--navbar applies bootstrap classes to create a responsive navigation bar. navbar-expand-lg keeps the links expanded on large screens and collapses them on small ones.-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">CSC 235</a>
+        <!--The navbar-toggler button is used to toggle the visibility of the navigation menu on smaller screens.-->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#components">Components</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!--
+      The main element contains the primary page content.
+      Bootstrap's container class centers the content and gives it responsive side margins.
+      The my-5 class adds vertical margin above and below the content.
+    -->
+    <main class="container my-5">
+      <h1>Welcome to CSC 235</h1>
+      <p>This sample page demonstrates two Bootstrap components: an Accordion and a Modal.</p>
+
+      <section id="components" class="mt-4">
+        <h2 class="h4">Bootsrap Components Used</h2>
+
+        <!--
+          BOOTSTRAP COMPONENT 1: ACCORDION
+          The accordion organizes component descriptions into sections that open and close.
+          Each button uses data-bs-target to identify the matching collapsible content.
+          data-bs-parent allows only one component section to remain open at a time.
+        -->
+        <div class="accordion" id="componentsAccordion">
+          <!-- First accordion item -->
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#Accordionone"
+                aria-expanded="true"
+                aria-controls="Accordionone"
+              >
+                Component 1: Accordion
+              </button>
+            </h3>
+
+            <!-- The show class makes this lecture open when the page first loads. -->
+            <div
+              id="Accordionone"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#componentsAccordion"
+            >
+              <div class="accordion-body">
+                Accordion is a bootstrap component that organizes content into collapsible sections. It allows users to expand and collapse sections to view or hide content, making it useful for displaying information in a compact and organized manner.
+              </div>
+            </div>
+          </div>
+
+          <!-- Second accordion item -->
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#accordiontwo"
+                aria-expanded="false"
+                aria-controls="accordiontwo"
+              >
+                Component 2: Modal
+              </button>
+            </h3>
+
+            <div
+              id="accordiontwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#componentsAccordion"
+            >
+              <div class="accordion-body">
+                Modal is a bootstrap component that displays content in a layer above the current page. It is often used for dialogs, forms, or additional information. Modals can be opened and closed by user interaction, providing a focused experience without navigating away from the main content.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--
+        This button opens the Modal component.
+        Its data-bs-target value matches the modal's id="courseModal" below.
+      -->
+      <button
+        class="btn btn-primary mt-4"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#courseModal"
+      >
+        View Modal
+      </button>
+    </main>
+
+    <!-- BOOTSTRAP COMPONENT 2: MODAL
+      It displays extra course information over the current page. 
+      The fade class adds a simple opening and closing animation.
+      tabindex="-1" ensures that the modal cannot be reached by tabbing through the page content when it is hidden.
+      aria-labelledby connects the modal to its visible heading for accessibility.
+    -->
+    <div
+      class="modal fade"
+      id="courseModal"
+      tabindex="-1"
+      aria-labelledby="courseModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5" id="courseModalLabel">Course Information</h2>
+
+            <!-- data-bs-dismiss="modal" tells Bootstrap to close the modal. -->
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            CSC 235 introduces students to HTML, CSS, and responsive web design.
+          </div>
+
+          <div class="modal-footer">
+            <!-- This is a second way to close the modal. -->
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The footer section and contains a my name and course information. -->
+    <footer class="bg-light text-center py-3">
+      <p class="mb-0">Nabin Oli, CS 235 Bootstrap Sample page</p>
+    </footer>
+
+    <!--
+      Bootstrap's JavaScript bundle is required for interactive components.
+      It controls the navbar collapse, Accordion, and Modal used on this page.
+    -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
